@@ -1,0 +1,42 @@
+@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Iniciar SesiÃ³n";
+}
+
+<div class="register-container">
+    <div class='img'><img src="/img/ladr.png" alt=""></div>
+    <div class="form">
+        <form class='form-content' id="account" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <h1>Use a local account to log in.</h1>
+             <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+            <button type="submit" class="btn-register">Log in</button>
+            
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

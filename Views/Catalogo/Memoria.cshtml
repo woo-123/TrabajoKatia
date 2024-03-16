@@ -1,0 +1,31 @@
+@model IEnumerable<GrupoPrueba2.Models.Catalogo>
+
+@{
+    ViewData["Title"] = "Memoria Ram";  
+}
+
+<h1 class='h1-catalogo'>@ViewData["Title"]</h1>
+     <div class='banner'></div>
+    <div class='banner2'></div>
+    <h1>@ViewData["Message"]</h1>
+    
+      <div id="products" class="catalogo-container">
+            @foreach (var item in Model) {
+              if(item.Id >= 9 && item.Id < 13){
+             <div class="catalogo-body">
+                  <div class="catalogo-img">
+                    <img class="img-responsive"
+                       src="/img/@item.ImagenName" alt="@item.ImagenName"/>
+                  </div>
+                  <div class='catalogo-text'>
+                    <h5 class="catalogo-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <p class="catalogo-p">@Html.DisplayFor(modelItem => item.descripcion)</p>
+                    <p class="catalogo-p">@Html.DisplayFor(modelItem => item.Price) soles </p>
+                    <a class="catalogo-btn" asp-action="Add" asp-route-id="@item.Id">Añadir al carrito</a>
+                  </div>
+                </div>
+              }
+            }
+      </div>
+     
+   
